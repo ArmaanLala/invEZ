@@ -9,13 +9,17 @@ router.get('/isauthenticated', (req, res) => {
 	});
 });
 
+router.post('logout', (req, res) => {
+	auth.signOut();
+	return res.status(204);
+});
+
 router.route('/signup')
 	.post(async (req, res) => {
 		const { email, password } = req.body;
 		try {
 			await auth.createUserWithEmailAndPassword(email, password);
 		} catch (err) {
-			console.error(err);
 			return res.status(500).json(err);
 		}
 		return res.status(204);

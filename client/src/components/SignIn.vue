@@ -3,11 +3,11 @@
     <form novalidate class="md-layout" @submit.prevent="validateUser">
       <md-card md-with-hover class="md-layout-item md-size-50 md-small-size-100">
         <md-card-header>
-          <div class="md-title">Login</div>
+          <div class="md-title">Sign In</div>
         </md-card-header>
 
         <md-card-content>
-          
+
           <md-field :class="getValidationClass('email')">
             <label for="email">Email</label>
             <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending" />
@@ -26,8 +26,9 @@
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
-          <md-button type="submit" class="md-primary" :disabled="sending">Login</md-button>
+			<md-button type="submit" class="md-primary" :disabled="sending">Sign In</md-button>
         </md-card-actions>
+		<span>Don't have an account? <router-link to="/signup">Sign Up</router-link>.</span>
       </md-card>
 
       <md-snackbar :md-active.sync="userSaved">The user {{ lastUser }} was saved with success!</md-snackbar>
@@ -45,7 +46,7 @@
   } from 'vuelidate/lib/validators'
 
   export default {
-    name: 'FormValidation',
+    name: 'SignIn',
     mixins: [validationMixin],
     data: () => ({
       form: {
@@ -128,16 +129,17 @@
 </script>
 
 <style scoped>
-  .md-progress-bar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-  }
-  form {
-    margin:  auto;
-    justify-content: center;
-      width: 100%;
-      max-width: 1200px;
-  }
+.md-progress-bar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+}
+
+form {
+	margin:  auto;
+	justify-content: center;
+	width: 100%;
+	max-width: 1200px;
+}
 </style>
