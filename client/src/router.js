@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './components/Home.vue'
 import SignIn from './components/SignIn.vue'
 import SignUp from './components/SignUp.vue'
+import Logout from './components/Logout.vue'
 import Main from './components/app/Main.vue'
 
 const isAuthenticated = async () => {
@@ -22,7 +23,7 @@ const checkAuthenticated = async (to, from, next) => {
 };
 
 // If user is not authenticated, redirect
-// to /signin and /signup from /app.
+// to /signin from /app.
 const checkNotAuthenticated = async (to, from, next) => {
 	if (!(await isAuthenticated())) {
 		next('/signin');
@@ -52,6 +53,11 @@ export default new Router({
 			name: 'SignUp',
 			component: SignUp,
 			beforeEnter: checkAuthenticated
+		},
+		{
+			path: '/logout',
+			name: 'Logout',
+			component: Logout
 		},
 		{
 			path: '/app',
