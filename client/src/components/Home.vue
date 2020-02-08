@@ -1,35 +1,53 @@
 <template>
 	<div>
 		<div class ="card">
-			<md-card md-with-hover class="md-layout-item md-size-50 md-small-size-100">
+			<md-card md-with-hover class="md-layout-item md-size-50 md-small-size-100" style="margin:4rem">
 				<md-card-header>
-					<div class="md-title"><img src="../assets/Logo.png" height="490" width="490"></div>
+					<div class="md-title"><img src="../assets/Logo.png" height="590" width="590"></div>
 				</md-card-header>
 			
-			<h2>InvEZting made easier</h2>
+			<h2>InvEZting made easy</h2>
 			<br>
 			<br>
 			</md-card>
 		</div>
 		<div class ="card">
-			<md-card md-with-hover class="md-layout-item md-size-50 md-small-size-100">
+			<md-card md-with-hover class="md-layout-item md-size-50 md-small-size-100" >
 				<md-card-header>
 					<div class="md-title">Who We Are</div>
 				</md-card-header>
 			<hr>
-			<p>We are a company focused on introducing people into the investing and our goal is to make it as easy as possible for them. We are a small team of three software engineers all based in the Athens-Clarke County Region.
+			<p>We are a company focused on introducing people into investing and we want to make it as easy as possible for them. We are a small team of three software engineers with various levels of experience all based in the Athens-Clarke County Region. InvEZ analyzises your personal information and using cloud processing it is able to determine the best stocks for you and projects how much money you are expected to make in a given period of time.
 			</p>
 			<br>
 			<br>
 			</md-card>
 		</div>
-		<div class ="card">
-			<md-card md-with-hover class="md-layout-item md-size-50 md-small-size-100">
+		<div class ="card2">
+			<md-card style="margin-right:4%">
 				<md-card-header>
-					<div class="md-title"><img src="../assets/Logo.png" height="490" width="490"></div>
+					<div class="md-title">Feature 1</div>
 				</md-card-header>
 			<hr>
-			<h2>InvEZting made easier</h2>
+			<h2>Insert Image Here</h2>
+			<br>
+			<br>
+			</md-card>
+			<md-card style="margin-right:4%">
+				<md-card-header>
+					<div class="md-title">Feature 2</div>
+				</md-card-header>
+			<hr>
+			<h2>Insert Image Here</h2>
+			<br>
+			<br>
+			</md-card>
+			<md-card >
+				<md-card-header>
+					<div class="md-title">Feature 3</div>
+				</md-card-header>
+			<hr>
+			<h2>Insert Image Here</h2>
 			<br>
 			<br>
 			</md-card>
@@ -53,13 +71,21 @@ export default {
 .md-card {
 	margin: auto;
 	justify-content: center;
+	display: inline-block;
 	flex-wrap: wrap;
-	width: 600px;
+	width: 24%;
 	/* height: 600px; */
 	/* padding-bottom: 54 rem; */
 	/* max-width: 1200px; */
 } 
+.card2 { 
+	flex-wrap: nowrap;
+
+	padding-bottom: 5rem;
+	
+}
 .card {
+
 	padding-bottom: 5rem;
 }
 </style>
