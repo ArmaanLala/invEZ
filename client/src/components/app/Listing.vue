@@ -1,7 +1,7 @@
 <template>
 	<md-card style="width: 500px">
 		<md-card-header>
-			<h3 class="md-title">{{ listing.name }} ({{ listing.ticker }})</h3>
+			<h2 >{{ listing.name }} ({{ listing.ticker }})</h2>
 		</md-card-header>
 		<md-card-content>
 			<line-chart :chart-data="datacollection" :options="optio"></line-chart>
@@ -253,6 +253,9 @@ export default {
 </script>
 
 <style scoped>
+h5 {
+	font-size: 10px;
+}
 .md-card {
 	flex-wrap: wrap;
 }
