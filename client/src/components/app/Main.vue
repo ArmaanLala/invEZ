@@ -44,9 +44,15 @@ export default {
 		};
 	},
 	async created() {
-		const resp = await fetch("/api/blackrock/curated");
-		const data = await resp.json();
-		this.listings = data;
+		this.isLoading = true;
+		try {
+			const resp = await fetch("/api/blackrock/curated");
+			const data = await resp.json();
+			this.listings = data;
+		} catch (err) {
+			console.error(err);
+		}
+		this.isLoading=false;
 	}
 };
 </script>
