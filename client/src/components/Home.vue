@@ -28,13 +28,13 @@
 		</div>
 		<div class="card2">
 			<!-- IMAGE 1 -->
-			<md-card style="margin-right:4%; width:350px; height:470px">
+			<md-card style="margin-right:4%; width:350px; height:450px">
 				<md-card-header>
 					<div class="md-title">Our Database</div>
 				</md-card-header>
 				<hr />
 				<h2>
-					<img src="../assets/r1.png" style="width:210px; height: 320px">
+					<img src="../assets/r1.png" style="height: 250px">
 				</h2>
 				<br />
 				<br />
@@ -47,7 +47,7 @@
 				</md-card-header>
 				<hr />
 				<h2>
-					<img src="../assets/r2.png" style="width:700px; height: 250px">
+					<img src="../assets/r2.png" style="height: 250px">
 				</h2>
 				<br />
 				<br />
@@ -60,7 +60,7 @@
 				</md-card-header>
 				<hr />
 				<h2>
-					<img src="../assets/r3.png" style="width:400px; height: 280px">
+					<img src="../assets/r3.png" style="width:350px">
 				</h2>
 				<br />
 				<br />
@@ -85,8 +85,11 @@ export default {
 	width: 24%;
 }
 .card2 {
-	flex-wrap: nowrap;
-	padding: 3rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	/* padding: 3rem; */
 }
 .card {
 	padding: 3rem;
