@@ -1,12 +1,12 @@
 <template>
 	<div>
 		<div class ="card">
-			<md-card md-with-hover class="md-layout-item md-size-50 md-small-size-100" style="margin:4rem">
+			<md-card md-with-hover class="md-layout-item md-size-50 md-small-size-100">
 				<md-card-header>
-					<div class="md-title"><img src="../assets/Logo.png" height="590" width="590"></div>
+					<div class="md-title"><img src="../assets/logo2.png" height="590" width="590"></div>
 				</md-card-header>
 			
-			<h2>InvEZting made easy</h2>
+			<h1>InvEZting made easy</h1>
 			<br>
 			<br>
 			</md-card>
@@ -69,7 +69,8 @@ export default {
 
 <style scoped>
 .md-card {
-	margin: auto;
+	padding: 3rem;
+	/* margin: auto; */
 	justify-content: center;
 	display: inline-block;
 	flex-wrap: wrap;
@@ -81,11 +82,11 @@ export default {
 .card2 { 
 	flex-wrap: nowrap;
 
-	padding-bottom: 5rem;
+	padding: 3rem;
 	
 }
 .card {
 
-	padding-bottom: 5rem;
+	padding: 3rem;
 }
 </style>

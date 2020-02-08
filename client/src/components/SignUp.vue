@@ -215,7 +215,7 @@ export default {
 				});
 
 				if (resp.status === 204) {
-					this.$router.push("/app");
+					this.$router.push("/updateinfo");
 				} else {
 					const data = await resp.json();
 					if (data.code === "auth/email-already-in-use") {

@@ -2,7 +2,7 @@
 	<div class ="navDiv">
 		<md-app >
       <md-app-toolbar >
-        <span class="md-title"><router-link to="/"><img src="../assets/Logo.png" height="120" width="120"></router-link></span>
+        <span class="md-title"><router-link to="/"><img src="../assets/logo2.png" height="120" width="120"></router-link></span>
       
 		<nav>
 			<router-link to="/signin"><md-button>Sign In</md-button></router-link>
