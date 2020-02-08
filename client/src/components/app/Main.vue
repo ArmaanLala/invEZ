@@ -22,7 +22,7 @@
 			</md-field>
 		</div>
 		<ol>
-			<li v-for="listing in listings" :key="listing.ticker">
+			<li v-for="listing in listings" :key="listing.ticker" class="listing">
 				<Listing :listing="listing" ref="listItem" />
 			</li>
 		</ol>
@@ -49,6 +49,19 @@ export default {
 			const resp = await fetch("/api/blackrock/curated");
 			const data = await resp.json();
 			this.listings = data;
+
+			// let animsAdded = false;
+			const intervalId = setInterval(() => {
+				console.log('interval')
+				const items = document.querySelectorAll('.listing');
+				if (items.length === this.listings.length) {
+					clearInterval(intervalId);
+					items.forEach((listElem, i) => {
+						listElem.style.animationDelay = `${250 * i}ms`;
+						listElem.classList.add('slide');
+					});
+				}
+			}, 1);
 		} catch (err) {
 			console.error(err);
 		}
@@ -82,8 +95,31 @@ ol {
 }
 ol > li {
 	padding-bottom: 2rem;
+	opacity: 0;
 }
 label {
 	font-weight: bold;
+}
+
+.slide {
+	animation-name: slide-up;
+	animation-duration: 2s;
+	animation-timing-function: cubic-bezier(.5, .7, .09, 1.08);
+	animation-fill-mode: forwards;
+}
+@keyframes slide-up {
+	0% {
+		transform: translateY(200rem);
+	}
+	20% {
+		opacity: 0.2;
+	}
+	30% {
+		opacity: 0.4;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
 </style>
