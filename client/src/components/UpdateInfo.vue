@@ -36,7 +36,7 @@
 							<md-checkbox v-model="tech">Technology</md-checkbox>
 							<md-checkbox v-model="entert">Entertainment</md-checkbox>
 							<md-checkbox v-model="transport">Transportaion</md-checkbox>
-							<md-checkbox v-model="food">Food</md-checkbox>
+							<md-checkbox v-model="finance">Finance</md-checkbox>
 						</div>
 					</div>
 					<br />
@@ -74,7 +74,7 @@ export default {
 		tech: false,
 		transport: false,
 		entert: false,
-		food: false,
+		finance: false,
 		radio: null,
 		form: {
 			occupation: null
@@ -105,7 +105,7 @@ export default {
 
 			this.transport = null;
 			this.entert = null;
-			this.food = null;
+			this.finance = null;
 			this.tech = null;
 		},
 		async updateUser() {
@@ -115,7 +115,7 @@ export default {
 				const interests = {
 					transport: this.transport,
 					entert: this.entert,
-					food: this.food,
+					finance: this.finance,
 					tech: this.tech
 				};
 
