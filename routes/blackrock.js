@@ -85,14 +85,30 @@ router.get('/curated', async (req, res) => {
 	}
 });
 
-router.get('/:ticker/:months', async (req, res) => {
+const parseDate = (noSepDate) => {
+	return `${noSepDate.substr(0, 4)}-${noSepDate.substr(4, 2)}-${noSepDate.substr(6, 2)}`;
+};
+
+// Gets one data point from each month for the past 24 months
+router.get('/:ticker', async (req, res) => {
 	const fetch = require('node-fetch');
 	try {
 		const resp = await fetch(`https://www.blackrock.com/tools/hackathon/performance?apiVersion=v1&identifiers=${req.params.ticker}`);
 		const data = await resp.json();
+		const subData = data.resultMap.RETURNS[0].returnsMap;
 
-		// Get the past number of specified months
-		return res.status(200).json(data.resultMap.RETURNS[0].returnsMap);
+		// Get the past 24 months
+		// (* 23 b/c the present month does not need 30 days)
+		const dates = Object.keys(subData).slice(-30 * 23);
+
+		// Dates are the keys and they correspond to a value in data
+		const dataPoints = {};
+		dataPoints[parseDate(dates[dates.length - 1])] = subData[dates[dates.length - 1]].level;
+		for (let i = 0; i < dates.length; i += 30) {
+			dataPoints[parseDate(dates[i])] = subData[dates[i]].level;
+		}
+
+		return res.status(200).json(dataPoints);
 	} catch (err) {
 		return res.status(500).json(err);
 	}
