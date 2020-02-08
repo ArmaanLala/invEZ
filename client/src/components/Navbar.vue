@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<h3>Navbar</h3>
+		<nav>
+			<router-link to="/signin">Sign in</router-link>
+			<router-link to="/signup">Sign up</router-link>
+		</nav>
 	</div>
 </template>
 
@@ -11,5 +14,4 @@ export default {
 </script>
 
 <style>
-
 </style>

@@ -1,5 +1,8 @@
 <template>
-	<img src="../assets/Logo.png">
+	<div>
+		<img src="../assets/Logo.png" height="490" width="490">
+		<h2>Investing made easier</h2>
+	</div>
 </template>
 
 <script>
@@ -13,6 +16,7 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+div {
+} 
 </style>
