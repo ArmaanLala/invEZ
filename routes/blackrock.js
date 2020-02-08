@@ -99,7 +99,7 @@ router.get('/:ticker', async (req, res) => {
 
 		// Get the past 24 months
 		// (* 23 b/c the present month does not need 30 days)
-		const dates = Object.keys(subData).slice(-30 * 23);
+		const dates = Object.keys(subData).slice(-30 * 24);
 
 		const dataPoints = [];
 		for (let i = 0; i < dates.length; i += 30) {
