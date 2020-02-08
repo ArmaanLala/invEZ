@@ -33,7 +33,7 @@ const STOCK_LISTING = [
 	new Stock('Walt Disney Company', 'DIS', 'Entertainment', 1)
 ];
 
-router.get('/test', async (req, res) => {
+router.get('/curated', async (req, res) => {
 	// Get interests and risk preference
 	try {
 		const userDoc = await db.collection('users').doc(auth.currentUser.uid).get();
@@ -95,6 +95,10 @@ router.get('/test', async (req, res) => {
 	// 	});
 	// }
 	// res.status(200).json(listings);
+});
+
+router.get('/:ticker/:from/:to', async (req, res) => {
+	console.log(req.params);
 });
 
 module.exports = router;

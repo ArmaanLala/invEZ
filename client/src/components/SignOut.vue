@@ -4,8 +4,7 @@
 export default {
 	name: 'SignOut',
 	async beforeCreate() {
-		const resp = await fetch('/api/users/signout', { method: 'POST' });
-		console.log(resp.status)
+		await fetch('/api/users/signout', { method: 'POST' });
 		this.$router.push('/signin');
 	}
 }
