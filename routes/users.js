@@ -9,9 +9,10 @@ router.get('/isauthenticated', (req, res) => {
 	});
 });
 
-router.post('logout', (req, res) => {
+router.post('/logout', (req, res) => {
+	console.log('loggg')
 	auth.signOut();
-	return res.status(204);
+	return res.status(204).send();
 });
 
 router.route('/signup')
@@ -22,7 +23,7 @@ router.route('/signup')
 		} catch (err) {
 			return res.status(500).json(err);
 		}
-		return res.status(204);
+		return res.status(204).send();
 	});
 
 router.route('/signin')
@@ -34,7 +35,7 @@ router.route('/signin')
 			console.error(err);
 			return res.status(500).send(err);
 		}
-		return res.status(204);
+		return res.status(204).send();
 	});
 
 module.exports = router;

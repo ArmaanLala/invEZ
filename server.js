@@ -34,6 +34,9 @@ const app = new express();
 app.use(bodyParser.json());
 
 // Routes
+app.get('/api/test', (req, res) => {
+	return res.send('hewwo');
+});
 app.use('/api/users', require('./routes/users')); // user signup and signin
 
 // Static asset handling

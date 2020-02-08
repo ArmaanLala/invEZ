@@ -122,7 +122,6 @@
 				<span>Already have an account? <router-link to="/signup">Sign In</router-link>.</span>
 			</md-card>
 
-			<md-snackbar :md-active.sync="weakPassword">Password should be at least 6 characters.</md-snackbar>
 			<md-snackbar :md-active.sync="emailInUse">That email address is already in use.</md-snackbar>
 		</form>
 	</div>
@@ -152,11 +151,9 @@ export default {
 			password: null,
 			confirmPassword: null
 		},
-		userSaved: false,
 		weakPassword: false,
 		emailInUse: false,
 		sending: false,
-		lastUser: null
 	}),
 	validations: {
 		form: {
@@ -181,7 +178,8 @@ export default {
 				email
 			},
 			password: {
-				required
+				required,
+				minLength: minLength(6)
 			},
 			confirmPassword: {
 				required,
@@ -198,14 +196,6 @@ export default {
 					"md-invalid": field.$invalid && field.$dirty
 				};
 			}
-		},
-		clearForm() {
-			this.$v.$reset();
-			this.form.firstName = null;
-			this.form.lastName = null;
-			this.form.age = null;
-			this.form.gender = null;
-			this.form.email = null;
 		},
 		async saveUser() {
 			this.sending = true;
@@ -226,25 +216,18 @@ export default {
 				});
 
 				if (resp.status === 204) {
-					console.log('object')
-					this.lastUser = `${this.form.firstName} ${this.form.lastName}`;
-					this.userSaved = true;
-					this.clearForm();
+					this.$router.push('/app');
 				} else {
 					const data = await resp.json();
-					console.log(data);
-					if (data.message === 'auth/weak-password') {
-						this.weakPassword = true;
-					}
-					if (data.message === 'auth/email-already-in-use') {
+					if (data.code === 'auth/email-already-in-use') {
 						this.emailInUse = true;
 					}
 				}
-
-				this.sending = false;
 			} catch (err) {
 				console.error(err);
 			}
+
+			this.sending = false;
 		},
 		validateUser() {
 			this.$v.$touch();

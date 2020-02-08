@@ -3,7 +3,7 @@
 <script>
 export default {
 	name: 'Logout',
-	async beforeCreated() {
+	async beforeCreate() {
 		const resp = await fetch('/api/users/logout', { method: 'POST' });
 		console.log(resp.status)
 		this.$router.push('/signin');
