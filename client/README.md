@@ -1,4 +1,4 @@
-# client
+# Frontend for invEZ
 
 ## Project setup
 ```
@@ -9,6 +9,7 @@ npm install
 ```
 npm run serve
 ```
+Defaults to localhost:8080.
 
 ### Compiles and minifies for production
 ```

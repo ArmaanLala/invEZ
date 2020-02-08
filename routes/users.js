@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { auth } = require('../server');
 
 router.route('/signup')
 	.post((req, res) => {
