@@ -4,7 +4,6 @@
 		<!-- TODO: have an animation here -->
 	</div>
 	<section v-else>
-		<h1>Main</h1>
 		<ol>
 			<li v-for="listing in listings" :key="listing.ticker">
 				<Listing :listing="listing" />
