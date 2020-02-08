@@ -119,7 +119,7 @@ export default {
 					tech: this.tech
 				};
 
-				/*const resp =*/ await fetch('api/users/update', {
+				const resp = await fetch('api/users/update', {
 					method: 'PATCH',
 					headers: {
 						'Content-Type': 'application/json',
@@ -131,6 +131,13 @@ export default {
 						radio: this.radio || 'not-sure'
 					})
 				});
+
+				if (resp.status === 204) {
+					this.$router.push('/app');
+				} else {
+					const data = await resp.json();
+					console.log(data);
+				}
 			} catch (err) {
 				console.error(err);
 			}
