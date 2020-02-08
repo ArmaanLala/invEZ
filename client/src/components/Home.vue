@@ -33,7 +33,7 @@
 				</md-card-header>
 				<hr />
 				<h2>
-					<img src="../assets/r1.jpg" height="590" width="590" />
+					<img src="../assets/r1.png" style="height=590px" />
 				</h2>
 				<br />
 				<br />
@@ -44,7 +44,7 @@
 				</md-card-header>
 				<hr />
 				<h2>
-					<img src="../assets/r2.jpg" height="590" width="590" />
+					<img src="../assets/r2.png" style="height=590px" />
 				</h2>
 				<br />
 				<br />
@@ -55,7 +55,7 @@
 				</md-card-header>
 				<hr />
 				<h2>
-					<img src="../assets/r3.jpg" height="590" width="590" />
+					<img src="../assets/r3.png" style="height:590px;" />
 				</h2>
 				<br />
 				<br />

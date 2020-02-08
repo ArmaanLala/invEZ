@@ -24,7 +24,7 @@ const STOCK_LISTING = [
 	new Stock('NCR Corporation', 'NCR', 'Finance', 10),
 	new Stock('Ford Motor Co.', 'F', 'Transportation', 9),
 	new Stock('General Motors', 'GM', 'Transportation', 8),
-	new Stock('Berkshire Hathaway Inc.', 'BRK-A', 'Finance', 7),
+	new Stock('BlackRock', 'BLK', 'Finance', 7),
 	new Stock('International Business Machines Corp.', 'IBM', 'Technology', 6),
 	new Stock('Coca-Cola', 'KO', 'Entertainment', 5),
 	new Stock('McDonald\'s Corporation', 'MCD', 'Entertainment', 4),
