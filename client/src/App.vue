@@ -26,6 +26,6 @@ export default {
 	/* margin-top: 60px; */
 }
 body{
-	background-color: rgb(161, 182, 168);
+	background-color: rgb(142, 194, 159);
 }
 </style>

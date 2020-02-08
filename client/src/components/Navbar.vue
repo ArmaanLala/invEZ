@@ -1,6 +1,6 @@
 <template>
-	<div class ="navDiv">
-		<md-app >
+	<div class ="navDiv" >
+		<md-app>
       <md-app-toolbar >
 <span class="md-title"><router-link to="/"><img src="../assets/logo2.png" height="120" width="120"></router-link></span>
 		<nav>
@@ -31,6 +31,8 @@ export default {
 
 }
 .md-app {
+	top: 0;
+	position: fixed;
     max-height: 400px;
     border: 1px solid rgba(#000, .12);
   }
