@@ -185,7 +185,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .md-progress-bar {
     position: absolute;
     top: 0;
@@ -193,9 +193,7 @@
     left: 0;
   }
   form {
-    //   margin-left: auto;
     margin:  auto;
-    //   margin-right: auto;
     justify-content: center;
       width: 100%;
       max-width: 1200px;
