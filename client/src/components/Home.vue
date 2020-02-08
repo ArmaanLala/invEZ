@@ -13,7 +13,5 @@ export default {
 
 <style scoped>
 div {
-	background-image: url('../assets/BackgroundDiv.jpg');
-	background-size: 1300px 400px;
 } 
 </style>
