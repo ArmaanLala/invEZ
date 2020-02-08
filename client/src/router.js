@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import Home from './components/Home.vue'
 import SignIn from './components/SignIn.vue'
 import SignUp from './components/SignUp.vue'
-import Logout from './components/Logout.vue'
+import SignOut from './components/SignOut.vue'
 import Main from './components/app/Main.vue'
 import MoreInfo from './components/MoreInfo.vue'
 
@@ -56,9 +56,9 @@ export default new Router({
 			beforeEnter: checkAuthenticated
 		},
 		{
-			path: '/logout',
-			name: 'Logout',
-			component: Logout
+			path: '/signout',
+			name: 'SignOut',
+			component: SignOut
 		},
 		{
 			path: '/app',

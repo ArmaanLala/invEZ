@@ -34,19 +34,16 @@
 						<span class="md-error" v-if="!$v.form.password.required">The password is required</span>
 						<span class="md-error" v-else-if="!$v.form.password.password">Invalid password</span>
 					</md-field>
+					<md-card-actions>
+						<md-button type="submit" class="md-primary" :disabled="sending">Sign In</md-button>
+					</md-card-actions>
+					<span>
+						Don't have an account?
+						<router-link to="/signup">Sign Up</router-link>.
+					</span>
 				</md-card-content>
-
 				<md-progress-bar md-mode="indeterminate" v-if="sending" />
-
-				<md-card-actions>
-					<md-button type="submit" class="md-primary" :disabled="sending">Sign In</md-button>
-				</md-card-actions>
-				<span>
-					Don't have an account?
-					<router-link to="/signup">Sign Up</router-link>.
-				</span>
 			</md-card>
-
 			<md-snackbar :md-active.sync="noLinkedEmail">We could not find an account attached to this email.</md-snackbar>
 		</form>
 	</div>
