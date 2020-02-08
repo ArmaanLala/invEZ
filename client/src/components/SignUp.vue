@@ -86,115 +86,144 @@
 </template>
 
 <script>
-  import { validationMixin } from 'vuelidate'
-  import {
-    required,
-    email,
-    sameAs,
-    minValue,
-    minLength,
-    maxLength
-  } from 'vuelidate/lib/validators'
+import { validationMixin } from "vuelidate";
+import {
+	required,
+	email,
+	sameAs,
+	minValue,
+	minLength,
+	maxLength
+} from "vuelidate/lib/validators";
 
-  export default {
-    name: 'FormValidation',
-    mixins: [validationMixin],
-    data: () => ({
-      form: {
-        firstName: null,
-        lastName: null,
-        gender: null,
-        age: null,
-        email: null,
-        password: null,
-        confirmPassword: null,
-      },
-      userSaved: false,
-      sending: false,
-      lastUser: null
-    }),
-    validations: {
-      form: {
-        firstName: {
-          required,
-          minLength: minLength(3)
-        },
-        lastName: {
-          required,
-          minLength: minLength(3)
-        },
-        age: {
-          required,
-          maxLength: maxLength(3),
-          minValue: minValue(18)
-        },
-        gender: {
-          required
-        },
-        email: {
-          required,
-          email
-        },
-        password: {
-            required
-        },
-        confirmPassword: {
-            required,
-            sameAsPassword: sameAs('password')
-        }
-      }
-    },
-    methods: {
-      getValidationClass (fieldName) {
-        const field = this.$v.form[fieldName]
+export default {
+	name: "FormValidation",
+	mixins: [validationMixin],
+	data: () => ({
+		form: {
+			firstName: null,
+			lastName: null,
+			gender: null,
+			age: null,
+			email: null,
+			password: null,
+			confirmPassword: null
+		},
+		userSaved: false,
+		weakPassword: false,
+		emailInUse: false,
+		sending: false,
+		lastUser: null
+	}),
+	validations: {
+		form: {
+			firstName: {
+				required,
+				minLength: minLength(3)
+			},
+			lastName: {
+				required,
+				minLength: minLength(3)
+			},
+			age: {
+				required,
+				maxLength: maxLength(3),
+				minValue: minValue(18)
+			},
+			gender: {
+				required
+			},
+			email: {
+				required,
+				email
+			},
+			password: {
+				required
+			},
+			confirmPassword: {
+				required,
+				sameAsPassword: sameAs("password")
+			}
+		}
+	},
+	methods: {
+		getValidationClass(fieldName) {
+			const field = this.$v.form[fieldName];
 
-        if (field) {
-          return {
-            'md-invalid': field.$invalid && field.$dirty
-          }
-        }
-      },
-      clearForm () {
-        this.$v.$reset()
-        this.form.firstName = null
-        this.form.lastName = null
-        this.form.age = null
-        this.form.gender = null
-        this.form.email = null
-      },
-      saveUser () {
-        this.sending = true
+			if (field) {
+				return {
+					"md-invalid": field.$invalid && field.$dirty
+				};
+			}
+		},
+		clearForm() {
+			this.$v.$reset();
+			this.form.firstName = null;
+			this.form.lastName = null;
+			this.form.age = null;
+			this.form.gender = null;
+			this.form.email = null;
+		},
+		async saveUser() {
+			this.sending = true;
+			try {
+				const resp = await fetch('api/users/signup', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						Accept: 'application/json'
+					},
+					body: JSON.stringify({
+						name: this.form.firstName + ' ' + this.form.lastName,
+						age: this.form.age,
+						gender: this.form.gender,
+						email: this.form.email,
+						password: this.form.password
+					})
+				});
 
-        // Instead of this timeout, here you can call your API
-        window.setTimeout(() => {
-          this.lastUser = `${this.form.firstName} ${this.form.lastName}`
-          this.userSaved = true
-          this.sending = false
-          this.clearForm()
-        }, 1500)
-      },
-      validateUser () {
-        this.$v.$touch()
+				if (resp.status === 204) {
+					console.log('object')
+					this.lastUser = `${this.form.firstName} ${this.form.lastName}`;
+					this.userSaved = true;
+					this.clearForm();
+				} else {
+					const data = await resp.json();
+					console.log(data);
+					if (data.message === 'auth/weak-password') {
+						this.weakPassword = true;
+					}
+					if (data.message === 'auth/email-already-in-use') {
+						this.emailInUse = true;
+					}
+				}
 
-        if (!this.$v.$invalid) {
-          this.saveUser()
-        }
-      }
-    }
-  }
+				this.sending = false;
+			} catch (err) {
+				console.error(err);
+			}
+		},
+		validateUser() {
+			this.$v.$touch();
+			if (!this.$v.$invalid) {
+				this.saveUser();
+			}
+		}
+	}
+};
 </script>
 
 <style scoped>
-  .md-progress-bar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-  }
-  form {
-    margin:  auto;
-    justify-content: center;
-      width: 100%;
-      max-width: 1200px;
-  }
+.md-progress-bar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+}
+form {
+	margin: auto;
+	justify-content: center;
+	width: 100%;
+	max-width: 1200px;
+}
 </style>
