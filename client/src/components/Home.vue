@@ -1,7 +1,8 @@
 <template>
-	<div>
-		<h1>invEZ</h1>
-	</div>
+	<title>
+		invEZ
+	</title>
+	
 </template>
 
 <script>
