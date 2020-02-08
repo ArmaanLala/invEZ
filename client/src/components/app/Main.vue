@@ -83,4 +83,7 @@ ol {
 ol > li {
 	padding-bottom: 2rem;
 }
+label {
+	font-weight: bold;
+}
 </style>
