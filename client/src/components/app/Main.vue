@@ -4,7 +4,7 @@
 		<div class="md-layout fields">
 			<md-field style="width:187.33px;">
 				<label for="money">Amount to Invest</label>
-				<md-input v-model="money" name="money" id="money"></md-input>
+				<md-input v-model="money" name="money" id="money" @keyup="setInvestAmount"></md-input>
 			</md-field>
 			<br />
 		</div>
@@ -12,18 +12,18 @@
 			<br />
 			<md-field style="width:187.33px;">
 				<label for="time">Time to Invest</label>
-				<md-select v-model="time" name="time" id="time">
-					<md-option value="1-month">1 Month</md-option>
-					<md-option value="3-month">3 Months</md-option>
-					<md-option value="6-month">6 Months</md-option>
-					<md-option value="9-month">9 Months</md-option>
-					<md-option value="1-year">1 Year</md-option>
+				<md-select v-model="time" name="time" id="time" @blur="setInvestTime">
+					<md-option value="1">1 Month</md-option>
+					<md-option value="3">3 Months</md-option>
+					<md-option value="6">6 Months</md-option>
+					<md-option value="9">9 Months</md-option>
+					<md-option value="12">1 Year</md-option>
 				</md-select>
 			</md-field>
 		</div>
 		<ol>
 			<li v-for="listing in listings" :key="listing.ticker">
-				<Listing :listing="listing" />
+				<Listing :listing="listing" ref="listItem" />
 			</li>
 		</ol>
 	</section>
@@ -38,7 +38,7 @@ export default {
 	data() {
 		return {
 			money: 100,
-			time: "3-month",
+			time: "3",
 			isLoading: true,
 			listings: null
 		};
@@ -52,7 +52,20 @@ export default {
 		} catch (err) {
 			console.error(err);
 		}
-		this.isLoading=false;
+		this.isLoading = false;
+	},
+	methods: {
+		setInvestTime() {
+			this.$refs.listItem.forEach((item) => {
+				item.setInvestTime(Number(this.time));
+			});
+		},
+		setInvestAmount() {
+			this.money = this.money.replace(/\D/g, '');
+			this.$refs.listItem.forEach((item) => {
+				item.setInvestAmount(this.money);
+			});
+		}
 	}
 };
 </script>

@@ -5,7 +5,7 @@
     </md-card-header>
     <md-card-content>
       <line-chart :chart-data="datacollection" :options="optio"></line-chart>
-      <canvas></canvas>
+      <h4>${{ investAmount }} for {{ investTime }} months</h4>
     </md-card-content>
   </md-card>
 </template>
@@ -48,11 +48,21 @@ export default {
       month9: null,
       month10: null,
       month11: null,
-      month12: null
+      month12: null,
+      investTime: 3,
+      investAmount: 100
     };
   },
   mounted() {},
   methods: {
+    setInvestTime(value) {
+      // value is a number representing months
+      this.investTime = value;
+    },
+    setInvestAmount(value) {
+      // value is a number representing USD
+      this.investAmount = value;
+    },
     fillData() {
       this.datacollection = {
         labels: [
@@ -206,9 +216,6 @@ export default {
         this.num = 11;
       }
       this.month1 = this.months[this.num].month;
-      console.log(
-        this.months[parseInt(this.data[23].date.substring(5, 7))].month
-      );
       this.fillData();
     } catch (err) {
       console.error(err.message);
