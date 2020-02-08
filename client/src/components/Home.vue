@@ -1,8 +1,5 @@
 <template>
-	<title>
-		invEZ
-	</title>
-	
+	<img src="../assets/invEZ.png">
 </template>
 
 <script>
