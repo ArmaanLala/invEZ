@@ -1,10 +1,12 @@
 <template>
-	<img src="../assets/Logo.png">
+	<div>
+		<h1>Main</h1>
+	</div>
 </template>
 
 <script>
 export default {
-	name: 'Home'
+
 }
 </script>
 
