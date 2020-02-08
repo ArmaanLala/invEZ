@@ -32,7 +32,9 @@
 					<div class="md-title">Feature 1</div>
 				</md-card-header>
 				<hr />
-				<h2>Insert Image Here</h2>
+				<h2>
+					<img src="../assets/r1.jpg" height="590" width="590" />
+				</h2>
 				<br />
 				<br />
 			</md-card>
@@ -41,7 +43,9 @@
 					<div class="md-title">Feature 2</div>
 				</md-card-header>
 				<hr />
-				<h2>Insert Image Here</h2>
+				<h2>
+					<img src="../assets/r2.jpg" height="590" width="590" />
+				</h2>
 				<br />
 				<br />
 			</md-card>
@@ -50,7 +54,9 @@
 					<div class="md-title">Feature 3</div>
 				</md-card-header>
 				<hr />
-				<h2>Insert Image Here</h2>
+				<h2>
+					<img src="../assets/r3.jpg" height="590" width="590" />
+				</h2>
 				<br />
 				<br />
 			</md-card>
