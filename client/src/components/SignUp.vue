@@ -32,7 +32,6 @@
               <md-field :class="getValidationClass('gender')">
                 <label for="gender">Gender</label>
                 <md-select name="gender" id="gender" v-model="form.gender" md-dense :disabled="sending">
-                  <md-option></md-option>
                   <md-option value="Male">Male</md-option>
                   <md-option value="Female">Female</md-option>
                 </md-select>
