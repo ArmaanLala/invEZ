@@ -1,0 +1,2 @@
+# invEZ
+### Investing made easy.
