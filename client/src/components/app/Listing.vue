@@ -1,11 +1,11 @@
 <template>
-  <md-card style="width: 400px">
+  <md-card style="width: 500px">
     <md-card-header>
       <h3 class="md-title">{{ listing.name }} ({{ listing.ticker }}) [{{ listing.category }}]</h3>
     </md-card-header>
     <md-card-content>
       <line-chart :chart-data="datacollection" :options="optio"></line-chart>
-      <h4>${{ investAmount }} for {{ investTime }} months</h4>
+      <h4>You should expect to gain ${{ investAmount }} if you invested for {{ investTime }} months based on the average growth rate for the past {{investTime*2}} months</h4>
     </md-card-content>
   </md-card>
 </template>
@@ -58,10 +58,19 @@ export default {
     setInvestTime(value) {
       // value is a number representing months
       this.investTime = value;
+      this.setInvestAmount(this.investAmount);
     },
     setInvestAmount(value) {
       // value is a number representing USD
-      this.investAmount = value;
+
+      this.investAmount = (
+        (value *
+          ((this.data[24].level - this.data[24 - this.investTime * 2].level) /
+            this.data[24 - this.investTime * 2].level)) /
+        2.0
+      ).toFixed(2);
+
+      //   console.log(this.data);
     },
     fillData() {
       this.datacollection = {
@@ -82,6 +91,8 @@ export default {
         datasets: [
           {
             label: "Data",
+
+            // xAxisID: "Tmba",
             backgroundColor: "rgba(0, 0, 0, 0)",
             borderColor: "#2d9428",
             lineTension: 0,
@@ -104,12 +115,31 @@ export default {
         ]
       };
       this.optio = {
+        title: {
+          display: true,
+          text: "Trend Based on $10,000 Invested Over One Year"
+        },
+        legend: {
+            display: false
+        },
         scales: {
           yAxes: [
             {
+              scaleLabel: {
+                display: true,
+                labelString: "Dollars Invested"
+              },
               ticks: {
                 min: 5000,
                 max: 25000
+              }
+            }
+          ],
+          xAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: "Months of the Year"
               }
             }
           ]
@@ -117,37 +147,37 @@ export default {
       };
     },
     getData2() {
-      return 10000 * (this.data[13].level / this.data[12].level);
+      return 10000 * (this.data[14].level / this.data[13].level);
     },
     getData3() {
-      return 10000 * (this.data[14].level / this.data[12].level);
+      return 10000 * (this.data[15].level / this.data[13].level);
     },
     getData4() {
-      return 10000 * (this.data[15].level / this.data[12].level);
+      return 10000 * (this.data[16].level / this.data[13].level);
     },
     getData5() {
-      return 10000 * (this.data[16].level / this.data[12].level);
+      return 10000 * (this.data[17].level / this.data[13].level);
     },
     getData6() {
-      return 10000 * (this.data[17].level / this.data[12].level);
+      return 10000 * (this.data[18].level / this.data[13].level);
     },
     getData7() {
-      return 10000 * (this.data[18].level / this.data[12].level);
+      return 10000 * (this.data[19].level / this.data[13].level);
     },
     getData8() {
-      return 10000 * (this.data[19].level / this.data[12].level);
+      return 10000 * (this.data[20].level / this.data[13].level);
     },
     getData9() {
-      return 10000 * (this.data[20].level / this.data[12].level);
+      return 10000 * (this.data[21].level / this.data[13].level);
     },
     getData10() {
-      return 10000 * (this.data[21].level / this.data[12].level);
+      return 10000 * (this.data[22].level / this.data[13].level);
     },
     getData11() {
-      return 10000 * (this.data[22].level / this.data[12].level);
+      return 10000 * (this.data[23].level / this.data[13].level);
     },
     getData12() {
-      return 10000 * (this.data[23].level / this.data[12].level);
+      return 10000 * (this.data[24].level / this.data[13].level);
     }
   },
   name: "Listing",
@@ -159,7 +189,7 @@ export default {
       const resp = await fetch(`/api/blackrock/${this.listing.ticker}`);
       const data = await resp.json();
       this.data = data;
-      this.num = parseInt(this.data[23].date.substring(5, 7)) - 1;
+      this.num = parseInt(this.data[24].date.substring(5, 7)) - 1;
       this.month12 = this.months[this.num].month;
       this.num = this.num - 1;
       if (this.num == -1) {
@@ -217,6 +247,8 @@ export default {
       }
       this.month1 = this.months[this.num].month;
       this.fillData();
+
+      this.setInvestAmount(this.investAmount);
     } catch (err) {
       console.error(err.message);
     }

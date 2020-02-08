@@ -63,7 +63,7 @@ export default {
 		setInvestAmount() {
 			this.money = this.money.replace(/\D/g, '');
 			this.$refs.listItem.forEach((item) => {
-				item.setInvestAmount(this.money);
+				item.setInvestAmount(Number(this.money));
 			});
 		}
 	}
@@ -79,7 +79,10 @@ export default {
 	/* width: auto; */
 }
 ol {
-	list-style: none;
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	list-style:none;
 	padding: 0;
 }
 </style>
