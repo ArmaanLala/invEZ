@@ -72,17 +72,15 @@ export default {
 
 <style scoped>
 .fields {
-	/* margin: auto; */
 	justify-content: center;
 }
-.md-field {
-	/* width: auto; */
-}
 ol {
-	display:flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	list-style:none;
-	padding: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	list-style: none;
+	padding: 0 1rem;
+}
+ol > li {
+	padding-bottom: 2rem;
 }
 </style>
