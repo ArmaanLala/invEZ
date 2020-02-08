@@ -1,10 +1,10 @@
 <template>
-  <md-card  style="width: 400px">
+  <md-card style="width: 400px">
     <md-card-header>
       <h3 class="md-title">{{ listing.name }} ({{ listing.ticker }}) [{{ listing.category }}]</h3>
     </md-card-header>
     <md-card-content>
-      <line-chart :chart-data="datacollection"></line-chart>
+      <line-chart :chart-data="datacollection" :options="optio"></line-chart>
       <canvas></canvas>
     </md-card-content>
   </md-card>
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       datacollection: null,
+      optio: null,
       data: null,
       months: [
         { month: "January" },
@@ -52,17 +53,29 @@ export default {
             backgroundColor: "rgba(0, 0, 0, 0)",
             borderColor: "#2d9428",
             lineTension: 0,
-            data: [
-              this.data[21].level,
-              this.data[22].level,
-              this.data[23].level
-            ]
+
+            data: [10000, this.getData2(), this.getData3()]
           }
-        ],
+        ]
+      };
+      this.optio = {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                min: 5000,
+                max: 20000
+              }
+            }
+          ]
+        }
       };
     },
-    getRandomInt() {
-      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
+    getData2() {
+      return 10000 * (this.data[22].level / this.data[21].level);
+    },
+    getData3() {
+      return 10000 * (this.data[23].level / this.data[21].level);
     }
   },
   name: "Listing",
@@ -99,6 +112,6 @@ export default {
 
 <style scoped>
 .md-card {
-	flex-wrap: wrap
+  flex-wrap: wrap;
 }
 </style>
