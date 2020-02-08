@@ -101,12 +101,18 @@ router.get('/:ticker', async (req, res) => {
 		// (* 23 b/c the present month does not need 30 days)
 		const dates = Object.keys(subData).slice(-30 * 23);
 
-		// Dates are the keys and they correspond to a value in data
-		const dataPoints = {};
-		dataPoints[parseDate(dates[dates.length - 1])] = subData[dates[dates.length - 1]].level;
+		const dataPoints = [];
 		for (let i = 0; i < dates.length; i += 30) {
-			dataPoints[parseDate(dates[i])] = subData[dates[i]].level;
+			dataPoints.push({
+				date: parseDate(dates[i]),
+				level: subData[dates[i]].level
+			});
 		}
+		// the most recent one is an edge case
+		dataPoints.push({
+			date: parseDate(dates[dates.length - 1]),
+			level: subData[dates[dates.length - 1]].level
+		});
 
 		return res.status(200).json(dataPoints);
 	} catch (err) {
