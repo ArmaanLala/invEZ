@@ -39,14 +39,36 @@ export default {
       num: null,
       month1: null,
       month2: null,
-      month3: null
+      month3: null,
+      month4: null,
+      month5: null,
+      month6: null,
+      month7: null,
+      month8: null,
+      month9: null,
+      month10: null,
+      month11: null,
+      month12: null
     };
   },
   mounted() {},
   methods: {
     fillData() {
       this.datacollection = {
-        labels: [this.month1, this.month2, this.month3],
+        labels: [
+          this.month1,
+          this.month2,
+          this.month3,
+          this.month4,
+          this.month5,
+          this.month6,
+          this.month7,
+          this.month8,
+          this.month9,
+          this.month10,
+          this.month11,
+          this.month12
+        ],
         datasets: [
           {
             label: "Data",
@@ -54,7 +76,20 @@ export default {
             borderColor: "#2d9428",
             lineTension: 0,
 
-            data: [10000, this.getData2(), this.getData3()]
+            data: [
+              10000,
+              this.getData2(),
+              this.getData3(),
+              this.getData4(),
+              this.getData5(),
+              this.getData6(),
+              this.getData7(),
+              this.getData8(),
+              this.getData9(),
+              this.getData10(),
+              this.getData11(),
+              this.getData12()
+            ]
           }
         ]
       };
@@ -64,7 +99,7 @@ export default {
             {
               ticks: {
                 min: 5000,
-                max: 20000
+                max: 25000
               }
             }
           ]
@@ -72,10 +107,37 @@ export default {
       };
     },
     getData2() {
-      return 10000 * (this.data[22].level / this.data[21].level);
+      return 10000 * (this.data[13].level / this.data[12].level);
     },
     getData3() {
-      return 10000 * (this.data[23].level / this.data[21].level);
+      return 10000 * (this.data[14].level / this.data[12].level);
+    },
+    getData4() {
+      return 10000 * (this.data[15].level / this.data[12].level);
+    },
+    getData5() {
+      return 10000 * (this.data[16].level / this.data[12].level);
+    },
+    getData6() {
+      return 10000 * (this.data[17].level / this.data[12].level);
+    },
+    getData7() {
+      return 10000 * (this.data[18].level / this.data[12].level);
+    },
+    getData8() {
+      return 10000 * (this.data[19].level / this.data[12].level);
+    },
+    getData9() {
+      return 10000 * (this.data[20].level / this.data[12].level);
+    },
+    getData10() {
+      return 10000 * (this.data[21].level / this.data[12].level);
+    },
+    getData11() {
+      return 10000 * (this.data[22].level / this.data[12].level);
+    },
+    getData12() {
+      return 10000 * (this.data[23].level / this.data[12].level);
     }
   },
   name: "Listing",
@@ -88,6 +150,51 @@ export default {
       const data = await resp.json();
       this.data = data;
       this.num = parseInt(this.data[23].date.substring(5, 7)) - 1;
+      this.month12 = this.months[this.num].month;
+      this.num = this.num - 1;
+      if (this.num == -1) {
+        this.num = 11;
+      }
+      this.month11 = this.months[this.num].month;
+      this.num = this.num - 1;
+      if (this.num == -1) {
+        this.num = 11;
+      }
+      this.month10 = this.months[this.num].month;
+      this.num = this.num - 1;
+      if (this.num == -1) {
+        this.num = 11;
+      }
+      this.month9 = this.months[this.num].month;
+      this.num = this.num - 1;
+      if (this.num == -1) {
+        this.num = 11;
+      }
+      this.month8 = this.months[this.num].month;
+      this.num = this.num - 1;
+      if (this.num == -1) {
+        this.num = 11;
+      }
+      this.month7 = this.months[this.num].month;
+      this.num = this.num - 1;
+      if (this.num == -1) {
+        this.num = 11;
+      }
+      this.month6 = this.months[this.num].month;
+      this.num = this.num - 1;
+      if (this.num == -1) {
+        this.num = 11;
+      }
+      this.month5 = this.months[this.num].month;
+      this.num = this.num - 1;
+      if (this.num == -1) {
+        this.num = 11;
+      }
+      this.month4 = this.months[this.num].month;
+      this.num = this.num - 1;
+      if (this.num == -1) {
+        this.num = 11;
+      }
       this.month3 = this.months[this.num].month;
       this.num = this.num - 1;
       if (this.num == -1) {
