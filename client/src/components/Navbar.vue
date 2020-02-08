@@ -2,11 +2,12 @@
 	<div class ="navDiv">
 		<md-app >
       <md-app-toolbar >
-        <span class="md-title"><router-link to="/"><img src="../assets/logo2.png" height="120" width="120"></router-link></span>
-      
+
 		<nav>
+			<router-link to="/app"><md-button>App</md-button></router-link>
 			<router-link to="/signin"><md-button>Sign In</md-button></router-link>
 			<router-link to="/signup"><md-button>Sign Up</md-button></router-link>
+			<router-link to="/signout"><md-button>Sign Out</md-button></router-link>
 		</nav>
 		</md-app-toolbar>
 		</md-app>
@@ -26,7 +27,7 @@ export default {
 .md-app-toolbar {
 	display: flex;
 	justify-content: space-between;
-	color: red; 
+	color: red;
 
 }
 .md-app {

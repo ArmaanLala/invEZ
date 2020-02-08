@@ -14,43 +14,40 @@ router.post('/signout', (req, res) => {
 	return res.sendStatus(204);
 });
 
-router.route('/signup')
-	.post(async (req, res) => {
-		const { email, password, name, age, gender } = req.body;
-		try {
-			await auth.createUserWithEmailAndPassword(email, password);
-			await db.collection('users').doc(auth.currentUser.uid).set({
-				name, age, gender
-			});
-		} catch (err) {
-			return res.status(500).json(err);
-		}
-		return res.sendStatus(204);
-	});
+router.post('/signup', async (req, res) => {
+	const { email, password, name, age, gender } = req.body;
+	try {
+		await auth.createUserWithEmailAndPassword(email, password);
+		await db.collection('users').doc(auth.currentUser.uid).set({
+			name, age, gender
+		});
+	} catch (err) {
+		return res.status(500).json(err);
+	}
+	return res.sendStatus(204);
+});
 
-router.route('/signin')
-	.post(async (req, res) => {
-		const { email, password } = req.body;
-		try {
-			await auth.signInWithEmailAndPassword(email, password);
-		} catch (err) {
-			console.error(err);
-			return res.status(500).send(err);
-		}
-		return res.sendStatus(204);
-	});
+router.post('/signin', async (req, res) => {
+	const { email, password } = req.body;
+	try {
+		await auth.signInWithEmailAndPassword(email, password);
+	} catch (err) {
+		console.error(err);
+		return res.status(500).send(err);
+	}
+	return res.sendStatus(204);
+});
 
-router.route('/update')
-	.patch(async (req, res) => {
-		const { occupation, interests, radio } = req.body;
-		try {
-			await db.collection('users').doc(auth.currentUser.uid).set({
-				occupation, interests, radio
-			}, { merge: true });
-		} catch (err) {
-			res.status(500).json(err);
-		}
-		res.sendStatus(204);
-	});
+router.patch('/update', async (req, res) => {
+	const { occupation, interests, radio } = req.body;
+	try {
+		await db.collection('users').doc(auth.currentUser.uid).set({
+			occupation, interests, radio
+		}, { merge: true });
+	} catch (err) {
+		res.status(500).json(err);
+	}
+	res.sendStatus(204);
+});
 
 module.exports = router;

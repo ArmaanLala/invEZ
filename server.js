@@ -34,10 +34,8 @@ const app = new express();
 app.use(bodyParser.json());
 
 // Routes
-app.get('/api/test', (req, res) => {
-	return res.send('hewwo');
-});
-app.use('/api/users', require('./routes/users')); // user signup and signin
+app.use('/api/users', require('./routes/users')); // everything with users
+app.use('/api/blackrock', require('./routes/blackrock')) // pulling stock data
 
 // Static asset handling
 if (process.env.NODE_ENV === 'production') {
