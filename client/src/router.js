@@ -5,7 +5,7 @@ import SignIn from './components/SignIn.vue'
 import SignUp from './components/SignUp.vue'
 import SignOut from './components/SignOut.vue'
 import Main from './components/app/Main.vue'
-import MoreInfo from './components/MoreInfo.vue'
+import UpdateInfo from './components/UpdateInfo.vue'
 
 const isAuthenticated = async () => {
 	const resp = await fetch('api/users/isauthenticated');
@@ -13,8 +13,7 @@ const isAuthenticated = async () => {
 	return data.isSignedIn;
 };
 
-// If user is authenticated, redirect
-// from /signin and /signup to /app.
+// If already logged in, redirect to the application.
 const checkAuthenticated = async (to, from, next) => {
 	if (await isAuthenticated()) {
 		next('/app');
@@ -23,8 +22,7 @@ const checkAuthenticated = async (to, from, next) => {
 	}
 };
 
-// If user is not authenticated, redirect
-// to /signin from /app.
+// Must be logged in to access.
 const checkNotAuthenticated = async (to, from, next) => {
 	if (!(await isAuthenticated())) {
 		next('/signin');
@@ -56,6 +54,12 @@ export default new Router({
 			beforeEnter: checkAuthenticated
 		},
 		{
+			path: '/UpdateInfo',
+			name: 'UpdateInfo',
+			component: UpdateInfo,
+			beforeEnter: checkNotAuthenticated
+		},
+		{
 			path: '/signout',
 			name: 'SignOut',
 			component: SignOut
@@ -65,12 +69,6 @@ export default new Router({
 			name: 'Main',
 			component: Main,
 			beforeEnter: checkNotAuthenticated
-		},
-		{
-			path: '/moreinfo',
-			name: 'More Info',
-			component: MoreInfo,
-			// beforeEnter: checkNotAuthenticated
 		}
 	]
 });

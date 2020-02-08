@@ -11,7 +11,7 @@ router.get('/isauthenticated', (req, res) => {
 
 router.post('/signout', (req, res) => {
 	auth.signOut();
-	return res.status(204).send();
+	return res.sendStatus(204);
 });
 
 router.route('/signup')
@@ -25,7 +25,7 @@ router.route('/signup')
 		} catch (err) {
 			return res.status(500).json(err);
 		}
-		return res.status(204).send();
+		return res.sendStatus(204);
 	});
 
 router.route('/signin')
@@ -37,7 +37,20 @@ router.route('/signin')
 			console.error(err);
 			return res.status(500).send(err);
 		}
-		return res.status(204).send();
+		return res.sendStatus(204);
+	});
+
+router.route('/update')
+	.patch(async (req, res) => {
+		const { occupation, interests, radio } = req.body;
+		try {
+			await db.collection('users').doc(auth.currentUser.uid).set({
+				occupation, interests, radio
+			}, { merge: true });
+		} catch (err) {
+			res.status(500).json(err);
+		}
+		res.sendStatus(204);
 	});
 
 module.exports = router;
