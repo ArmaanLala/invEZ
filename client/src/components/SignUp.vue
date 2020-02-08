@@ -64,7 +64,7 @@
             <span class="md-error" v-else-if="!$v.form.password.password">Invalid password</span>
           </md-field>
 
-          <md-field :class="getValidationClass('password')">
+          <md-field :class="getValidationClass('confirmPassword')">
             <label for="confirmPassword">Confirm Password</label>
             <md-input type="password" name="confirmPassword" id="confirmPassword"  v-model="form.confirmPassword" :disabled="sending" />
             <span class="md-error" v-if="!$v.form.confirmPassword.required">Please confirm your password</span>
@@ -91,7 +91,7 @@
   import {
     required,
     email,
-    sameAsPassword,
+    sameAs,
     minValue,
     minLength,
     maxLength
@@ -141,7 +141,7 @@
         },
         confirmPassword: {
             required,
-            sameAsPassword
+            sameAsPassword: sameAs('password')
         }
       }
     },
