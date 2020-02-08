@@ -1,5 +1,7 @@
 <template>
-	<h3>{{ listing.ticker }}</h3>
+	<div>
+		<h3>{{ listing.name }} ({{ listing.ticker }})</h3>
+	</div>
 </template>
 
 <script>

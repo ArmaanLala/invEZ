@@ -45,9 +45,9 @@ router.patch('/update', async (req, res) => {
 			occupation, interests, radio
 		}, { merge: true });
 	} catch (err) {
-		res.status(500).json(err);
+		return res.status(500).json(err);
 	}
-	res.sendStatus(204);
+	return res.sendStatus(204);
 });
 
 module.exports = router;
