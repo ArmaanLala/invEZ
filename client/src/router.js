@@ -1,8 +1,20 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './components/Home.vue'
-import Login from './components/Login.vue'
+import SignIn from './components/SignIn.vue'
 import SignUp from './components/SignUp.vue'
+
+// const isAuthenticated = async () => {
+// 	const resp = await fetch('api/users/isauthenticated');
+// 	const data = await resp.json();
+// 	return data.isSignedIn;
+// };
+
+// const checkAuthenticated = async (to, from, next) => {
+// 	if (await isAuthenticated()) {
+
+// 	}
+// };
 
 Vue.use(Router);
 
@@ -11,17 +23,17 @@ export default new Router({
 	routes: [
 		{
 			path: '/',
-			name: 'home',
+			name: 'Home',
 			component: Home,
 		},
 		{
 			path: '/signin',
-			name: 'login',
-			component: Login,
+			name: 'Sign In',
+			component: SignIn,
 		},
 		{
 			path: '/signup',
-			name: 'Create Account',
+			name: 'Sign Up',
 			component: SignUp,
 		}
 
