@@ -1,4 +1,6 @@
-<template><div></div></template>
+<template>
+	<h1>Signing you out...</h1>
+</template>
 
 <script>
 export default {
