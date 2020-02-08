@@ -131,7 +131,9 @@ export default {
 	right: 0;
 	left: 0;
 }
-
+/* div {
+  color: aqua
+} */
 form {
 	margin: auto;
 	justify-content: center;
