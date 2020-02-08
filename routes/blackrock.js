@@ -17,7 +17,7 @@ const STOCK_LISTING = [
 	new Stock('Twitter, Inc.', 'TWTR', 'Technology', 17),
 	new Stock('Amazon', 'AMZN', 'Entertainment', 16),
 	new Stock('Netflix', 'NFLX', 'Entertainment', 15),
-	new Stock('Google', 'GOOG', 'Technology', 14),
+	new Stock('Google', 'GOOGL', 'Technology', 14),
 	new Stock('3M', 'MMM', 'Finance', 13),
 	new Stock('JPMorgan Chase & Co.', 'JPM', 'Finance', 12),
 	new Stock('Simon Property Group, Inc.', 'SPG', 'Finance', 11),
@@ -83,22 +83,19 @@ router.get('/curated', async (req, res) => {
 	} catch (err) {
 		return res.status(500).json(err);
 	}
-	// return res.sendStatus(500);
-	// const fetch = require('node-fetch');
-	// const resp = await fetch('https://www.blackrock.com/tools/hackathon/performance?apiVersion=v1&identifiers=AAPL');
-	// const data = await resp.json();
-	// return res.json(data);
-	// const listings = [];
-	// for (let i = 0; i < 20; i++) {
-	// 	listings.push({
-	// 		ticker: `${i}`
-	// 	});
-	// }
-	// res.status(200).json(listings);
 });
 
-router.get('/:ticker/:from/:to', async (req, res) => {
-	console.log(req.params);
+router.get('/:ticker/:months', async (req, res) => {
+	const fetch = require('node-fetch');
+	try {
+		const resp = await fetch(`https://www.blackrock.com/tools/hackathon/performance?apiVersion=v1&identifiers=${req.params.ticker}`);
+		const data = await resp.json();
+
+		// Get the past number of specified months
+		return res.status(200).json(data.resultMap.RETURNS[0].returnsMap);
+	} catch (err) {
+		return res.status(500).json(err);
+	}
 });
 
 module.exports = router;

@@ -16,9 +16,13 @@ export default {
 		listing: Object
 	},
 	async created() {
-		const resp = await fetch(`/api/blackrock/${this.listing.ticker}/2/3`);
-		const data = await resp.json();
-		console.log(data)
+		try {
+			const resp = await fetch(`/api/blackrock/${this.listing.ticker}/3`);
+			const data = await resp.json();
+			console.log(data)
+		} catch (err) {
+			console.error(err.message);
+		}
 	}
 }
 </script>
