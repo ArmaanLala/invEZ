@@ -5,6 +5,7 @@ import SignIn from './components/SignIn.vue'
 import SignUp from './components/SignUp.vue'
 import Logout from './components/Logout.vue'
 import Main from './components/app/Main.vue'
+import MoreInfo from './components/MoreInfo.vue'
 
 const isAuthenticated = async () => {
 	const resp = await fetch('api/users/isauthenticated');
@@ -64,6 +65,12 @@ export default new Router({
 			name: 'Main',
 			component: Main,
 			beforeEnter: checkNotAuthenticated
+		},
+		{
+			path: '/moreinfo',
+			name: 'More Info',
+			component: MoreInfo,
+			// beforeEnter: checkNotAuthenticated
 		}
 	]
 });
