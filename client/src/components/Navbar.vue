@@ -16,7 +16,7 @@
 							<md-button>Sign Out</md-button>
 						</router-link>
 					</div>
-					<div v-else>
+					<div v-else class="timb">
 						<router-link to="/signin">
 							<md-button>Sign In</md-button>
 						</router-link>
@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style lang="scss">
+.timb {
+	background-color: lightgray;
+}
 .navDiv {
 	padding-bottom: 2rem;
 }
