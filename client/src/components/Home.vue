@@ -15,7 +15,9 @@
           </div>
         </md-card-header>
         <h1>
-          Inv<span class="green">EZ</span>ting made <span class="green">easy</span>
+          Inv
+          <span class="green">EZ</span>ting made
+          <span class="green">easy</span>
         </h1>
         <br />
         <br />
@@ -36,40 +38,52 @@
     </div>
     <div class="card2">
       <!-- IMAGE 1 -->
-      <md-card style="margin-right:4%; width:350px; height:450px">
+      <md-card style="margin-right:4%; width:350px; height:550px">
         <md-card-header>
           <div class="md-title">Our Database</div>
         </md-card-header>
         <hr />
-        <h2>
+        <h6>
           <img src="../assets/r1.png" style="height: 250px" />
-        </h2>
+          <br />
+          <br />
+		<hr>
+		When a new user signs up for an account, we ask a few simple questions about the individual which we can use in our calculations all to find the best stocks for you.
+        </h6>
         <br />
         <br />
       </md-card>
 
       <!-- IMAGE 2 -->
-      <md-card style="margin-right:4%; width:350px; height:450px">
+      <md-card style="margin-right:4%; width:350px; height:550px">
         <md-card-header>
           <div class="md-title">Our Code</div>
         </md-card-header>
         <hr />
-        <h2>
+        <h6>
           <img src="../assets/r2.png" style="height: 250px" />
-        </h2>
+          <br />
+          <br />
+
+          <hr />Once you input your data, we use cloud computing to determine how big of a risk taker are you and try our best to fit you into a demographic where you would enjoy our recomendations.
+        </h6>
         <br />
         <br />
       </md-card>
 
       <!-- IMAGE 3 -->
-      <md-card style="width:350px; height:450px">
+      <md-card style="width:350px; height:550px">
         <md-card-header>
           <div class="md-title">Our Advice</div>
         </md-card-header>
         <hr />
-        <h2>
-          <img src="../assets/r3.png" style="width:350px" />
-        </h2>
+        <h6>
+          <img src="../assets/r3.png" style="height:250px" />
+          <br />
+          <br />
+          <hr />After the results of our code come back we curate the best stocks for you to invest in and gives you an estimated amount you could expect to make.
+        </h6>
+
         <br />
         <br />
       </md-card>
