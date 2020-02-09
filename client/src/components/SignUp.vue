@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<form novalidate class="md-layout" @submit.prevent="validateUser">
-			<md-card md-with-hover class="md-layout-item md-size-50 md-small-size-100">
+			<md-card md-with-hover class="md-layout-item md-size-50 md-small-size-100 md-elevation-24">
 				<md-card-header>
 					<div class="md-title">Create an Account</div>
 				</md-card-header>

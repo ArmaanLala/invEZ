@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="card">
-      <md-card class="md-layout-item md-size-50 md-small-size-100">
+      <md-card class="md-layout-item md-size-50 md-small-size-100 md-elevation-24">
         <md-card-header>
           <!--
           <md-card-media-cover md-solid>
@@ -24,7 +24,7 @@
       </md-card>
     </div>
     <div class="card">
-      <md-card class="md-layout-item md-size-50 md-small-size-100">
+      <md-card class="md-layout-item md-size-50 md-small-size-100 md-elevation-24">
         <md-card-header>
           <div class="md-title">
             <h2>Who We Are</h2>
@@ -38,7 +38,7 @@
     </div>
     <div class="card2">
       <!-- IMAGE 1 -->
-      <md-card style="margin-right:4%; width:350px; height:550px">
+      <md-card class = "md-elevation-24" style="margin-right:4%; width:350px; height:550px">
         <md-card-header>
           <div class="md-title">Our Database</div>
         </md-card-header>
@@ -55,7 +55,7 @@
       </md-card>
 
       <!-- IMAGE 2 -->
-      <md-card style="margin-right:4%; width:350px; height:550px">
+      <md-card class = "md-elevation-24" style="margin-right:4%; width:350px; height:550px">
         <md-card-header>
           <div class="md-title">Our Code</div>
         </md-card-header>
@@ -72,7 +72,7 @@
       </md-card>
 
       <!-- IMAGE 3 -->
-      <md-card style="width:350px; height:550px">
+      <md-card class = "md-elevation-24" style="width:350px; height:550px">
         <md-card-header>
           <div class="md-title">Our Advice</div>
         </md-card-header>
@@ -98,6 +98,9 @@ export default {
 </script>
 
 <style scoped>
+/* template {
+  background-color: rgb(142, 194, 159);
+} */
 .md-card {
   padding: 3rem;
   justify-content: center;
@@ -110,7 +113,7 @@ export default {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  /* padding: 3rem; */
+  padding: 3rem;
 }
 .card {
   padding: 3rem;

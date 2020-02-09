@@ -1,5 +1,5 @@
 <template>
-	<md-card style="width: 500px">
+	<md-card  class = "md-elevation-24" style="width: 500px">
 		<md-card-header>
 			<h2 >{{ listing.name }} ({{ listing.ticker }})</h2>
 		</md-card-header>
