@@ -15,8 +15,7 @@
           </div>
         </md-card-header>
         <h1>
-          Inv
-          <span class="green">EZ</span>ting made
+          Inv<span class="green">EZ</span>ting made
           <span class="green">easy</span>
         </h1>
         <br />
@@ -31,7 +30,7 @@
           </div>
         </md-card-header>
         <hr />
-        <p>InvEZ technology analyzes your inputted information with cloud processing in order to predict your financial outcome for you to make the best investment decision. Our company, catered towards people with little to no financial background, focuses on using business and stock trends to recommend our users to lucrative investments. Our new team, currently consisting of three software engineers, is centered in Athens, Georgia. We strive to create a helpful and intuitive product for our users.</p>
+        <p id="t">InvEZ technology analyzes your inputted information with cloud processing in order to predict your financial outcome for you to make the best investment decision. Our company, catered towards people with little to no financial background, focuses on using business and stock trends to recommend our users to lucrative investments. Our new team, currently consisting of three software engineers, is centered in Athens, Georgia. We strive to create a helpful and intuitive product for our users.</p>
         <br />
         <br />
       </md-card>
@@ -98,6 +97,12 @@ export default {
 </script>
 
 <style scoped>
+h6 {
+  font-size: .8rem;
+}
+#t {
+  font-size: 1.1rem;
+}
 /* template {
   background-color: rgb(142, 194, 159);
 } */
@@ -113,7 +118,7 @@ export default {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  padding: 3rem;
+  padding: 4rem;
 }
 .card {
   padding: 3rem;
