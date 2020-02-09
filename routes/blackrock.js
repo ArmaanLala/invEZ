@@ -97,8 +97,7 @@ router.get('/:ticker', async (req, res) => {
 		const data = await resp.json();
 		const subData = data.resultMap.RETURNS[0].returnsMap;
 
-		// Get the past 24 months
-		// (* 23 b/c the present month does not need 30 days)
+		// Get the past 24 months with 25 segments of time
 		const dates = Object.keys(subData).slice(-30 * 24);
 
 		const dataPoints = [];
