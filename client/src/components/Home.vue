@@ -15,9 +15,7 @@
           </div>
         </md-card-header>
         <h1>
-          Inv
-          <span class="green">EZ</span>ting made
-          <span class="green">easy</span>
+          Inv<span class="green">EZ</span>ting made <span class="green">easy</span>
         </h1>
         <br />
         <br />

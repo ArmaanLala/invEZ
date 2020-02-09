@@ -8,7 +8,7 @@
 			<h4>
 				You should expect to
 				<span :class="{ green: willGain, red: !willGain }">{{ willGain ? 'gain' : 'lose' }}</span>
-				${{ investAmount >= 0 ? investAmount : investAmount * -1 }} if you invested ${{ investAmount }} for {{ investTime }} months based on the average growth rate for the past {{investTime * 2}} months.
+				${{ gainedAmount >= 0 ? gainedAmount : gainedAmount * -1 }} if you invest ${{ investAmount }} for {{ investTime }} months based on the average growth rate for the past {{investTime * 2}} months.
 			</h4>
 		</md-card-content>
 	</md-card>
@@ -54,12 +54,13 @@ export default {
 			month11: null,
 			month12: null,
 			investTime: 3,
-			investAmount: 100
+			investAmount: 100,
+			gainedAmount: 0
 		};
 	},
 	computed: {
 		willGain() {
-			return this.investAmount >= 0;
+			return this.gainedAmount >= 0;
 		}
 	},
 	mounted() {},
@@ -71,7 +72,8 @@ export default {
 		},
 		setInvestAmount(value) {
 			// value is a number representing USD
-			this.investAmount = (
+			this.investAmount = value;
+			this.gainedAmount = (
 				(value *
 					((this.data[24].level -
 						this.data[24 - this.investTime * 2].level) /
