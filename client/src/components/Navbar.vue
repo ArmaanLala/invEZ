@@ -1,7 +1,7 @@
 <template>
 	<div class="navDiv">
 		<md-app>
-			<md-app-toolbar>
+			<md-app-toolbar class="test">
 				<span class="md-title">
 					<router-link to="/">
 						<img src="../assets/logo2.png" height="120" width="120" />
@@ -49,6 +49,11 @@ export default {
 </script>
 
 <style lang="scss">
+.test {
+	width: 100vw;
+	z-index:100;
+	position: static;
+}
 .timb {
 	background-color: lightgray;
 }
