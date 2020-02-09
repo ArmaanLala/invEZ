@@ -3,7 +3,7 @@
 	<section v-else>
 		<div class="md-layout fields">
 			<md-field style="width:187.33px;">
-				<label for="money">Amount to Invest</label>
+				<label for="money" style="color: #000000;">Amount to Invest</label>
 				<md-input v-model="money" name="money" id="money" @keyup="setInvestAmount"></md-input>
 			</md-field>
 			<br />
@@ -11,7 +11,7 @@
 		<div class="md-layout fields">
 			<br />
 			<md-field style="width:187.33px;">
-				<label for="time">Time to Invest</label>
+				<label for="time" style="color: #000000;">Time to Invest</label>
 				<md-select v-model="time" name="time" id="time" @blur="setInvestTime">
 					<md-option value="1">1 Month</md-option>
 					<md-option value="3">3 Months</md-option>
@@ -92,6 +92,17 @@ ol {
 	grid-template-columns: 1fr 1fr 1fr;
 	list-style: none;
 	padding: 0 1rem;
+	justify-items: center;
+}
+@media screen and (max-width: 1550px) {
+	ol {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media screen and (max-width: 1050px) {
+	ol {
+		grid-template-columns: 1fr;
+	}
 }
 ol > li {
 	padding-bottom: 2rem;

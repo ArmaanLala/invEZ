@@ -5,7 +5,11 @@
 		</md-card-header>
 		<md-card-content>
 			<line-chart :chart-data="datacollection" :options="optio"></line-chart>
-			<h4>You should expect to gain ${{ investAmount }} if you invested for {{ investTime }} months based on the average growth rate for the past {{investTime * 2}} months.</h4>
+			<h4>
+				You should expect to
+				<span :class="{ green: willGain, red: !willGain }">{{ willGain ? 'gain' : 'lose' }}</span>
+				${{ investAmount >= 0 ? investAmount : investAmount * -1 }} if you invested ${{ investAmount }} for {{ investTime }} months based on the average growth rate for the past {{investTime * 2}} months.
+			</h4>
 		</md-card-content>
 	</md-card>
 </template>
@@ -52,6 +56,11 @@ export default {
 			investTime: 3,
 			investAmount: 100
 		};
+	},
+	computed: {
+		willGain() {
+			return this.investAmount >= 0;
+		}
 	},
 	mounted() {},
 	methods: {
@@ -258,5 +267,11 @@ h5 {
 }
 .md-card {
 	flex-wrap: wrap;
+}
+.green {
+	color: green;
+}
+.red {
+	color: red;
 }
 </style>
