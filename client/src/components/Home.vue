@@ -31,7 +31,7 @@
           </div>
         </md-card-header>
         <hr />
-        <p>We are a company focused on introducing people into investing and we want to make it as easy as possible for them. We are a small team of three software engineers with various levels of experience all based in the Athens-Clarke County Region. InvEZ analyzises your personal information and using cloud processing it is able to determine the best stocks for you and projects how much money you are expected to make in a given period of time.</p>
+        <p>InvEZ technology analyzes your inputted information with cloud processing in order to predict your financial outcome for you to make the best investment decision. Our company, catered towards people with little to no financial background, focuses on using business and stock trends to recommend our users to lucrative investments. Our new team, currently consisting of three software engineers, is centered in Athens, Georgia. We strive to create a helpful and intuitive product for our users.</p>
         <br />
         <br />
       </md-card>
@@ -48,7 +48,7 @@
           <br />
           <br />
 		<hr>
-		When a new user signs up for an account, we ask a few simple questions about the individual which we can use in our calculations all to find the best stocks for you.
+        When a new user signs up for an account, we ask a few questions about the individual which we use in our calculations to find the right portfolio for them.
         </h6>
         <br />
         <br />
@@ -65,7 +65,7 @@
           <br />
           <br />
 
-          <hr />Once you input your data, we use cloud computing to determine how big of a risk taker are you and try our best to fit you into a demographic where you would enjoy our recomendations.
+          <hr /> After the user inputs their data, we use cloud computing to categorize the user in order to determine the best stocks for them.
         </h6>
         <br />
         <br />
@@ -81,7 +81,7 @@
           <img src="../assets/r3.png" style="height:250px" />
           <br />
           <br />
-          <hr />After the results of our code come back we curate the best stocks for you to invest in and gives you an estimated amount you could expect to make.
+          <hr />After categorizing the user, we present them with several stocks that fit their interests and give them projected gain/loss based on how much and how long they are willing to invest.
         </h6>
 
         <br />
